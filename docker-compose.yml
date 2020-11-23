@@ -1,0 +1,16 @@
+version: "3"
+services:
+  calliebot_discord:
+    container_name: calliebot_discord
+    image: "calliebot_discord"
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - /mnt/ramdisk/calliebot:/app
+    restart: unless-stopped
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "200k"
+        max-file: "10"
